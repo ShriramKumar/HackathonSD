@@ -10,11 +10,13 @@
 
 <body>
 	<h1 style="text-align:center">Food Spyder</h1>
+	<h1>{{ form.errors }}</h1>
+	<h1>{{ form.non_field_errors }}</h1>
 	<div class="container">
 	  <div class="form-group">
-	    <label>Languages</label>
 	    <form action="/foodSpyder/" method="post">{% csrf_token %}
-	    	<input class="form-control autocomplete" placeholder="Enter dish that you like" />
+	    	<label for="input_recipe">Languages</label>
+	    	<input type="text" name="input_recipe" class="form-control autocomplete" placeholder="Enter dish that you like" />
 	    	<button type="submit" class="btn btn-lg btn-success" style="margin-top:20px;" name="inputRecipe">Find what I like</button>
 		</form>
 	  </div>
