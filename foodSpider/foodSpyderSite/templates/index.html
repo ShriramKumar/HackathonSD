@@ -1,0 +1,43 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>FoodSpyder</title>
+  <link href="http://jquery-ui-bootstrap.github.io/jquery-ui-bootstrap/css/custom-theme/jquery-ui-1.10.3.custom.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+	<h1 style="text-align:center">Food Spyder</h1>
+	<div class="container">
+	  <div class="form-group">
+	    <label>Languages</label>
+	    <form action="/foodSpyder/" method="post">{% csrf_token %}
+	    	<input class="form-control autocomplete" placeholder="Enter dish that you like" />
+	    	<button type="submit" class="btn btn-lg btn-success" style="margin-top:20px;" name="inputRecipe">Find what I like</button>
+		</form>
+	  </div>
+	  <div class="jumbotron">
+	  	{{matches}}
+	  </div>
+	</div>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<script type="text/javascript">
+  		$(function() {
+		  var availableTags = [
+		    "ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++",
+		    "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran",
+		    "Groovy", "Haskell", "Java", "JavaScript", "Lisp", "Perl",
+		    "PHP", "Python", "Ruby", "Scala", "Scheme"
+		  ];
+		  
+		  $(".autocomplete").autocomplete({
+		    source: availableTags
+		  });
+		});
+  	</script>
+</body>
+</html>
